@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+html {
+  font-family: 'Marcellus SC', serif;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #333;
+  color: #EEE;
+
+}
+
+p {
+  color: #EEE;
+}
+
+a {
+  text-decoration: none;
+  color: #EEE;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.team-info {
+  img {
+    width: 100%;
+  }
+}
+.points {
+  margin: 10px auto;
+  ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline;
+  }
+  .point {
+    margin: 1em auto;
+    border: 2px solid #555;
+    border-radius: 2px;
+    background-color: #444;
+    position: relative;
+    display: block;
+    p {
+      background-color: rgba(68, 68, 68, 0.75);
+      border: 1px solid #333;
+      border-left: 1em solid #002553;
+      width: 100%;
+      position: absolute;
+      top: 50px;
+      left: 1em;
+      padding: 1em .5em;
+      margin: 0;
+      z-index: 99;
+      font-size: 1.5em;
+    }
+    p.bottom {
+      top: 350px;
+    }
+    nav {
+        padding: 1em;
+    }
+  }
+  .link-wrapper {
+
+  }
+  .wrapper {
+    display: block;
+    max-height: 500px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}
+
+.admin-links li + li:before {
+  content: ("-");
+  padding-right: 5px;
+}

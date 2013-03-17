@@ -1,0 +1,59 @@
+<article>
+<h1>Post</h1>
+<p id="notice"><%= notice %></p>
+
+<section class="team-news points">
+<% @news.each_with_index do |item, index| %>
+  <div class="point">
+    <%= link_to (item.links["web"]["href"]), class: 'link-wrapper' do %>
+    <div class="wrapper">
+      <% if item.images[0] %>
+        <%= image_tag(item.images[0]["url"]) if item.images[0] %>
+      <% end %>
+    </div>
+    <p class="<% if index == 2 %>bottom<% end %>"><%= item.headline %></p>
+    <% end %>
+    <nav class="admin-links">
+      <ul>
+        <li><%= item.title %></li>
+        <li><%= item.mobileStory %></li>
+      </ul>
+    </nav>
+  </div>
+  <% end %>
+</section>
+
+<section class="team-info">
+  <dl>
+    <dt>Post about: <%= @post.team.name %></dt>
+    <dd>Content: <%= @post.content %></dd>
+    <dd>Published: <%= @post.published %></dd>
+  </dl>
+  <img src="<%= @post.team.image_url %>" />
+</section>
+
+<section class="points">
+<% @post.points.each_with_index do |point, index| %>
+  <div class="point">
+    <%= link_to point.link, class: 'link-wrapper' do %>
+    <div class="wrapper">
+      <% if point.image_url %>
+        <%= image_tag point.image_url %>
+      <% end %>
+    </div>
+    <p class="<% if index == 2 %>bottom<% end %>"><%= point.content %></p>
+    <% end %>
+    <nav class="admin-links">
+      <ul>
+        <li><%= link_to 'Edit', edit_post_point_path(@post, point) %></li>
+        <li><%= link_to 'Destroy', post_point_path(@post, point), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+
+</section>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %> |
+<%= link_to 'New Point', new_post_point_path(@post) %>
+</article>

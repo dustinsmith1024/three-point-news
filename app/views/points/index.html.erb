@@ -1,0 +1,36 @@
+<h1>Listing points</h1>
+
+<dl>
+  <dt>Post about: <%= @post.team.name %></dt>
+  <dd>Content: <%= @post.content %></dd>
+  <dd>Published: <%= @post.published %></dd>
+</dl>
+<img src="<%= @post.image_url %>" />
+<table>
+  <tr>
+    <th></th>
+    <th>Content</th>
+    <th>Published</th>
+    <th>Link</th>
+    <th>Post</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @points.each_with_index do |point, index| %>
+  <tr>
+    <td><%= index + 1 %>.</td>
+    <td><%= point.content %></td>
+    <td><%= point.published %></td>
+    <td><%= point.link %></td>
+    <td><%= link_to 'Show', post_point_path(@post, point) %></td>
+    <td><%= link_to 'Edit', edit_post_point_path(@post, point) %></td>
+    <td><%= link_to 'Destroy', post_point_path(@post, point), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Point', new_post_point_path(@post) %>
