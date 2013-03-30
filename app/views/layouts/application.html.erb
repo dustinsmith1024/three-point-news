@@ -3,13 +3,13 @@
 <head>
   <title>ThreePointNews</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  
   <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
-
+<%= javascript_include_tag "application" %>
 </body>
 </html>

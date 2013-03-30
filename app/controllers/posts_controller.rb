@@ -13,9 +13,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-    espn = Espn::Client.new({api_key: '8hu4nra8956f8kymyq955j33'})
-    @news = espn.team_news('2')
+    @team = espn.team('nba', params[:id].to_s)
+    @news = espn.team_news(params[:id].to_s)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -81,4 +80,5 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

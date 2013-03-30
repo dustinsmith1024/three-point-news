@@ -1,0 +1,6 @@
+<%= link_to (item.links["web"]["href"]), class: 'link-wrapper' do %>
+    <div class="wrapper"><%= image_tag(swap_size(item.images[0]["url"])) if item.images[0] %>
+		<p class="bottom" style="border-left-color: #<%= team.color %>;"><%= item.title || item.headline %><time><%= item.published.to_time %></time></p>
+    </div>
+  </div>
+  <% end %>

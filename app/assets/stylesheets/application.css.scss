@@ -42,6 +42,7 @@ a {
     width: 100%;
   }
 }
+
 .points {
   margin: 10px auto;
   ul {
@@ -54,26 +55,30 @@ a {
   }
   .point {
     margin: 1em auto;
-    border: 2px solid #555;
     border-radius: 2px;
-    background-color: #444;
     position: relative;
     display: block;
+    .wrapper {
+      p {
+        position: absolute;
+        top: 50px;
+        //left: 1em;
+        margin: 0;
+        z-index: 99;
+        
+      }
+    }
     p {
-      background-color: rgba(68, 68, 68, 0.75);
-      border: 1px solid #333;
       border-left: 1em solid #002553;
       width: 100%;
-      position: absolute;
-      top: 50px;
-      left: 1em;
       padding: 1em .5em;
-      margin: 0;
-      z-index: 99;
       font-size: 1.5em;
+      background-color: rgba(68, 68, 68, 0.75);
+      margin-bottom: 1em;
+      //margin-left: 1em;
     }
     p.bottom {
-      top: 350px;
+      top: 375px;
     }
     nav {
         padding: 1em;
@@ -96,4 +101,20 @@ a {
 .admin-links li + li:before {
   content: ("-");
   padding-right: 5px;
+}
+
+time {
+  font-size: 0.5em;
+  display: block;
+}
+
+.point-header {
+  position: relative;
+}
+
+.back {
+  float: right;
+  position: absolute;
+  top: .5em;
+  right: .5em;
 }

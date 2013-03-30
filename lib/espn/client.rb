@@ -17,8 +17,8 @@ module Espn
     # @param [Hash] options the options to create the Headline object.
     # @option options [String] :api_key Your ESPN developer api key.
     # @return [EspnRb::Headline] entry point to Espn Headline API.
-    def append_key()
-
+    def append_key(path)
+      path + "apikey=#{@api_key}"
     end
 
     def by_date(date)
@@ -28,8 +28,7 @@ module Espn
 
     def team_news(team_id)
       #http://api.espn.com/v1/sports/basketball/nba/teams/2/news?apikey=8hu4nra8956f8kymyq955j33&limit=3
-      path = "sports/basketball/nba/teams/#{team_id}/news?apikey=#{@api_key}"
-      puts path
+      path = append_key("sports/basketball/nba/teams/#{team_id}/news?insider=no&")
       response = self.class.get(path, {})
       #get(@base_uri + path + '?' + @api_key)
       #news['headlines'][0]['images']
@@ -40,10 +39,18 @@ module Espn
 
     def teams(league_slug)
       #http://api.espn.com/v1/sports/basketball/nba/teams?apikey=8hu4nra8956f8kymyq955j33
-      path = "sports/basketball/#{league_slug}/teams?#{@api_key}"
+      path = append_key("sports/basketball/#{league_slug}/teams?")
       response = self.class.get(path, {})
       teams = response['sports'][0]['leagues'][0]['teams']
       teams.map {|item| Team.create(item)}
+    end
+
+    def team(league_slug, team_id)
+      #http://api.espn.com/v1/sports/basketball/nba/teams?apikey=8hu4nra8956f8kymyq955j33
+      path = append_key("sports/basketball/#{league_slug}/teams/#{team_id}?")
+      response = self.class.get(path, {})
+      team = response['sports'][0]['leagues'][0]['teams'][0]
+      Team.create(team)
     end
 
     def images
