@@ -12,29 +12,25 @@
  *= require_tree .
  */
 
+$text-color: #333;
+
 html {
   font-family: 'Marcellus SC', serif;
 }
 
 body {
   max-width: 900px;
+  padding: 1em;
   margin: 0 auto;
-  background-color: #333;
-  color: #EEE;
-
+  background-color: #FFF;
 }
 
-p {
-  color: #EEE;
+body, p, a, a:hover {
+  color: $text-color;
 }
 
-a {
+a, a:hover {
   text-decoration: none;
-  color: #EEE;
-  &:hover {
-    color: black;
-    text-decoration: none;
-  }
 }
 
 .team-info {
@@ -58,34 +54,21 @@ a {
     border-radius: 2px;
     position: relative;
     display: block;
-    .wrapper {
-      p {
-        position: absolute;
-        top: 50px;
-        //left: 1em;
-        margin: 0;
-        z-index: 99;
-        
-      }
+    .overlay {
+      background-color: rgba(68, 68, 68, 0.75);
+      color: #EEE;
+      margin: 0;
+      position: absolute;
+      top: 375px;
+      z-index: 99;
     }
     p {
-      border-left: 1em solid #002553;
-      width: 100%;
-      padding: 1em .5em;
+      border-left: 0.75em solid #002553;
       font-size: 1.5em;
-      background-color: rgba(68, 68, 68, 0.75);
       margin-bottom: 1em;
-      //margin-left: 1em;
+      padding: 1em 0.5em;
+      width: 100%;
     }
-    p.bottom {
-      top: 375px;
-    }
-    nav {
-        padding: 1em;
-    }
-  }
-  .link-wrapper {
-
   }
   .wrapper {
     display: block;

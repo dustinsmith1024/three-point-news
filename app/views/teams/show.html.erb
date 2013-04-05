@@ -1,15 +1,27 @@
-<p id="notice"><%= notice %></p>
+<article>
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
+  <header class="point-header" style="border-bottom: 2px solid #<%= @team.color %>">
+  <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
 
-<p>
-  <b>League:</b>
-  <%= @team.league %>
-</p>
+  <nav class="back">
+    <%= link_to 'Back to teams', teams_path %>
+  </nav>
+</header>
 
+  <section class="team-news points">
+    <% @news.each_with_index do |item, index| %>
+      <div class="point">
+        <% if item.images[0] %>
+          <%= render partial: 'image', locals: { item: item, index: index, team: @team} %>
+        <% else %>
+          <%= render partial: 'no_image', locals: {item: item, index: index, team: @team} %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+  <nav class="team-info">
+    <p><%= link_to 'Back to all Teams', teams_path %></p>
+  </nav>
+
+</article>

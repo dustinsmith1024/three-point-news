@@ -1,28 +1,27 @@
 <article>
 
-<header class="point-header" style="border-bottom: 2px solid #<%= @team.color %>">
-<h1><%= @team.location %> <%= @team.name %> Headlines</h1>
+  <header class="point-header" style="border-bottom: 2px solid #<%= @team.color %>">
+  <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
 
-<nav class="back">
-  <%= link_to 'Back to teams', teams_path %>
-</nav>
+  <nav class="back">
+    <%= link_to 'Back to teams', teams_path %>
+  </nav>
 </header>
-<section class="team-news points">
-<% @news.each_with_index do |item, index| %>
-  <div class="point">
-    <% if item.images[0] %>
-      <%= render partial: 'image', locals: { item: item, index: index, team: @team} %>
-    <% else %>
-      <%= render partial: 'no_image', locals: {item: item, index: index, team: @team} %>
+
+  <section class="team-news points">
+    <% @news.each_with_index do |item, index| %>
+      <div class="point">
+        <% if item.images[0] %>
+          <%= render partial: 'image', locals: { item: item, index: index, team: @team} %>
+        <% else %>
+          <%= render partial: 'no_image', locals: {item: item, index: index, team: @team} %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
-</section>
+  </section>
 
-<section class="team-info">
-  <dl>
-    <dt>Post about: <%= @team.name %></dt>
-    <dt><%= link_to 'Back to Teams', teams_path %></dt>
-  </dl>
-</section>
+  <nav class="team-info">
+    <p><%= link_to 'Back to all Teams', teams_path %></p>
+  </nav>
 
+</article>

@@ -10,14 +10,12 @@ class TeamsController < ApplicationController
     end
   end
 
-  # GET /teams/1
-  # GET /teams/1.json
   def show
-    @team = Team.find(params[:id])
-
+    @team = espn.team('nba', params[:id].to_s)
+    @news = espn.team_news(params[:id].to_s)
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @team }
+      format.json { render json: @post }
     end
   end
 
