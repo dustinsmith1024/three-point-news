@@ -2,8 +2,10 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    #@teams = Team.all
-    @teams = espn.teams('nba')
+    @sport = params[:sport] || 'basketball'
+    @league = params[:league] || 'nba'
+    @teams = espn.teams(@sport, @league)
+    @sports = espn.all_team_sports
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @teams }
@@ -11,8 +13,10 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = espn.team('nba', params[:id].to_s)
-    @news = espn.team_news(params[:id].to_s)
+    @sport = params[:sport] || 'basketball'
+    @league = params[:league] || 'nba'
+    @team = espn.team(@sport, @league, params[:id].to_s)
+    @news = espn.team_news(@sport, @league, params[:id].to_s)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }

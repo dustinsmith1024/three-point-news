@@ -39,6 +39,10 @@ a, a:hover {
   }
 }
 
+.web-image {
+  width: 50px;
+}
+
 .points {
   margin: 10px auto;
   ul {
@@ -100,4 +104,14 @@ time {
   position: absolute;
   top: .5em;
   right: .5em;
+}
+
+footer {
+  text-align: center;
+  a {
+    display: block;
+  }
+  img {
+    margin: 1em 0;
+  }
 }

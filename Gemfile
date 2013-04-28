@@ -29,6 +29,7 @@ gem 'jquery-rails'
 
 gem 'neat'
 gem 'httparty'
+gem 'dspn', path: '/Users/dustinsmith/Development/dspn'
 #gem "espn_rb"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

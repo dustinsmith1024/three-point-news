@@ -13,3 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+	$("[data-logo]").each(function(i) {
+		var $e = $(this);
+		$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?callback=?&v=1.0&q=" + $(this).text(), function(data) {
+			var img = data['responseData']['results'][0]['url'],
+				nextImg = data['responseData']['results'][1]['url'],
+				$i = $('<img/>');
+
+			$i.on('error', function(e){
+				$(this).attr('src', nextImg);
+				$i.off('error');
+			});
+			$i.attr('src', img).attr('class', 'web-image');
+			$e.before($i);
+		});
+	});
+});

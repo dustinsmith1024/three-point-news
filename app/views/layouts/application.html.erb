@@ -10,6 +10,11 @@
 <body>
 
 <%= yield %>
-<%= javascript_include_tag "application" %>
+
+	<footer>
+		<%= link_to 'http://espn.go.com/' do %><%= image_tag 'espn-api-silver_150.png', class: 'branding' %><% end %>
+		<%= link_to 'http://twitter.com/dsmith1024' do %>@DSmith1024<% end %>
+	</footer>
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

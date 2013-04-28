@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$('img').on('error', function(e){
+$('.espn-image').on('error', function(e){
 	console.log('error loading', this.src);
 	var src = $(this).attr('src');
 	if(src.indexOf('800') !== -1){

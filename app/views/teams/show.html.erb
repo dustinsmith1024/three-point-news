@@ -4,7 +4,7 @@
   <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
 
   <nav class="back">
-    <%= link_to 'Back to teams', teams_path %>
+    <%= link_to 'Back to teams', teams_path(league: @league, sport: @sport) %>
   </nav>
 </header>
 
@@ -21,7 +21,7 @@
   </section>
 
   <nav class="team-info">
-    <p><%= link_to 'Back to all Teams', teams_path %></p>
+    <p><%= link_to 'Back to teams', teams_path(league: @league, sport: @sport) %></p>
   </nav>
 
 </article>
