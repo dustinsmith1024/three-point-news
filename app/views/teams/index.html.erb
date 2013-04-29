@@ -2,8 +2,16 @@
 
 <p>Pick a team to view the latest EPSN highlights. This is an experiment with the EPSN API.</p>
 
+<h2>Team Sports</h2>
 <ul class="teams-sports-list">
 	<% @sports.each do |sport| %>
+		<li><%= link_to teams_path(league: sport[:league], sport: sport[:sport]) do %><%= sport[:league].titleize %><% end %></li>
+	<% end %>
+</ul>
+
+<h2>Sports News</h2>
+<ul class="sports-list">
+	<% @non_team_sports.each do |sport| %>
 		<li><%= link_to teams_path(league: sport[:league], sport: sport[:sport]) do %><%= sport[:league].titleize %><% end %></li>
 	<% end %>
 </ul>

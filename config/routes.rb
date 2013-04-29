@@ -1,12 +1,29 @@
 ThreePointNews::Application.routes.draw do
 
-  resources :teams
-
-  resources :posts do
-    resources :points
-  end
   
-  root :to => 'teams#index'
+  root :to => 'sports#index'
+
+  resources :sports, only: [:index, :show] do
+    collection do
+      get 'news'
+    end
+    resources :leagues, only: [:show] do
+      member do
+        get 'news'
+      end
+      resources :teams, only: [:show]
+    end
+  end
+
+  #/sports/basketball/news -> sport news
+  #/sports/basketball/league/news -> league news
+  #/sports/basketball/league/teams -> teams list
+  #/sports/basketball/league/nba/teams/id/ -> team news
+  
+
+
+  
+  #/teams/
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

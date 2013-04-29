@@ -1,8 +1,12 @@
 <article>
 
   <header class="point-header" style="border-bottom: 2px solid #<%= @team.color %>">
-  <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
-
+  <%= if @team %>
+    <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
+  <% elsif @league %>
+    <h1><%= @league.titleize %> Headlines</h1>
+  <% end %>
+  
   <nav class="back">
     <%= link_to 'Back to teams', teams_path(league: @league, sport: @sport) %>
   </nav>

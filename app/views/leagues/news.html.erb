@@ -1,0 +1,18 @@
+<article>
+  	<header class="point-header" style="border-bottom: 2px solid black">
+		<h1><%= @sport %> Headlines</h1>
+	</header>
+
+  <section class="team-news points">
+    <% @news.each_with_index do |item, index| %>
+      <div class="point">
+		<%= link_to (item.links.web.href), class: 'link-wrapper' do %>
+			<p class="no-pull"><%= item.title || item.headline %><time><%= item.published.to_time %></time></p>
+		<% end %>
+
+      </div>
+    <% end %>
+  </section>
+
+
+</article>

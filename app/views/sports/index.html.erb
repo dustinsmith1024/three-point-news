@@ -1,0 +1,17 @@
+<h1>Three Point News</h1>
+
+<p>Pick a sport or team to view the latest EPSN highlights. This is an experiment with the EPSN API.</p>
+
+<h2>Team Sports</h2>
+<ul class="teams-sports-list">
+	<% @sports.each do |sport| %>
+		<li><%= link_to sport_league_path(sport[:sport], sport[:league]) do %><%= sport[:league].titleize %><% end %></li>
+	<% end %>
+</ul>
+
+<h2>Sports News</h2>
+<ul class="sports-list">
+	<% @non_team_sports.each do |sport| %>
+		<li><%= link_to news_sport_leagues_path(sport[:sport], sport[:league]) do %><%= sport[:league] || sport[:sport] %><% end %></li>
+	<% end %>
+</ul>

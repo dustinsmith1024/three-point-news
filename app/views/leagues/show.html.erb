@@ -1,0 +1,17 @@
+<h1><%= @league.titleize %> Teams</h1>
+
+<p>Pick a team to view the latest EPSN highlights. This is an experiment with the EPSN API.</p>
+
+<ul class="teams-list">
+<% @teams.each do |team| %>
+  <li>
+  	<%= link_to sport_league_team_path(@sport, @league, team.id) do %>
+	  	<% if @league == 'nba' %>
+	    	<%= image_tag "#{team.name.downcase.delete(' ')}.gif" %><%= "#{team.location} #{team.name}" %>
+	    <% else %>
+	    	<span data-logo="true"><%= "#{team.location} #{team.name}" %></span>
+	    <% end %>
+  	<% end %>
+  </li>
+<% end %>
+</ul>
