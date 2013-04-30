@@ -1,0 +1,3 @@
+<%= link_to (item.links.web.href), class: 'link-wrapper' do %>
+<p class="no-pull" style="border-left-color: black; border-top-color: black;"><%= item.title || item.headline %><time><%= item.published.to_time %></time></p>
+<% end %>

@@ -1,6 +1,13 @@
-<h1><%= @league.titleize %> Teams</h1>
 
-<p>Pick a team to view the latest EPSN highlights. This is an experiment with the EPSN API.</p>
+
+
+<header class="point-header" style="border-bottom: 2px solid black">
+	<h1><%= @league.titleize %> Teams</h1>
+  
+  	<nav class="back">
+    	<%= link_to 'Back to all sports', root_path %>
+  	</nav>
+</header>
 
 <ul class="teams-list">
 <% @teams.each do |team| %>
@@ -15,3 +22,7 @@
   </li>
 <% end %>
 </ul>
+
+<nav class="team-info">
+<p><%= link_to 'Back to all sports', sports_path %></p>
+</nav>

@@ -1,14 +1,14 @@
 <article>
 
   <header class="point-header" style="border-bottom: 2px solid #<%= @team.color %>">
-  <%= if @team %>
+  <% if @team %>
     <h1><%= @team.location %> <%= @team.name %> Headlines</h1>
   <% elsif @league %>
     <h1><%= @league.titleize %> Headlines</h1>
   <% end %>
-  
+
   <nav class="back">
-    <%= link_to 'Back to teams', teams_path(league: @league, sport: @sport) %>
+    <%= link_to 'Back to teams', sport_league_path(@sport, @league) %>
   </nav>
 </header>
 
@@ -25,7 +25,7 @@
   </section>
 
   <nav class="team-info">
-    <p><%= link_to 'Back to teams', teams_path(league: @league, sport: @sport) %></p>
+    <p><%= link_to 'Back to teams', sport_league_path(@sport, @league) %></p>
   </nav>
 
 </article>

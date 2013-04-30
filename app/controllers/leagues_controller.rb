@@ -12,11 +12,12 @@ class LeaguesController < ApplicationController
   end
 
   def news
+  	puts 'im in the news'
     @sport = params[:sport_id]
     @league = params[:id]
   	#@team = espn.team(@sport, @league, params[:id].to_s)
     @news = espn.sport_news(@sport, @league)
-    
+    puts @news
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }

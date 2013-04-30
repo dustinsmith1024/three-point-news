@@ -3,7 +3,7 @@
   <header class="point-header" style="border-bottom: 2px solid black">
   <% if @league %>
     <h1><%= @league.titleize %></h1>
-  <% elsif @league %>
+  <% else %>
     <h1><%= @sport.titleize %> Headlines</h1>
   <% end %>
   
@@ -16,16 +16,16 @@
     <% @news.each_with_index do |item, index| %>
       <div class="point">
         <% if item.images[0] %>
-          <%= render partial: 'image', locals: { item: item, index: index} %>
+          <%= render partial: 'leagues/image', locals: { item: item, index: index} %>
         <% else %>
-          <%= render partial: 'no_image', locals: {item: item, index: index} %>
+          <%= render partial: 'leagues/no_image', locals: {item: item, index: index} %>
         <% end %>
       </div>
     <% end %>
   </section>
 
   <nav class="team-info">
-    <p><%= link_to 'Back to home', root_path(league: @league, sport: @sport) %></p>
+    <p><%= link_to 'Back to home', root_path %></p>
   </nav>
 
 </article>

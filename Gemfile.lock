@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/dustinsmith/Development/dspn
+GIT
+  remote: https://github.com/dustinsmith1024/dspn.git
+  revision: c334b1985d48640061ea36afc4f5f56cf70ce897
   specs:
     dspn (0.0.0)
 

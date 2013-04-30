@@ -14,14 +14,8 @@ class SportsController < ApplicationController
   end
 
   def show
-    @sport = params[:sport]
-    @league = params[:league]
-    if params[:team]
-      @team = espn.team(@sport, @league, params[:id].to_s)
-      @news = espn.team_news(@sport, @league, params[:id].to_s)
-    else
-      @news = espn.sport_news(@sport, @league)
-    end
+    @sport = params[:id]
+  	@news = espn.sport_news(@sport, nil)
     
     respond_to do |format|
       format.html # show.html.erb

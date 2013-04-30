@@ -12,6 +12,10 @@
 <h2>Sports News</h2>
 <ul class="sports-list">
 	<% @non_team_sports.each do |sport| %>
-		<li><%= link_to news_sport_leagues_path(sport[:sport], sport[:league]) do %><%= sport[:league] || sport[:sport] %><% end %></li>
+		<% if sport[:league] %>
+			<li><%= link_to news_sport_league_path(sport[:sport], sport[:league]) do %><%= sport[:league] || sport[:sport] %><% end %></li>
+			<% else %>
+				<li><%= link_to sport_path(sport[:sport]) do %><%= sport[:sport] %><% end %></li>
+			<% end %>
 	<% end %>
 </ul>
