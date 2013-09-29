@@ -106,6 +106,10 @@ time {
   right: .5em;
 }
 
+.back-link {
+  padding: 2em 0;
+}
+
 footer {
   text-align: center;
   a {
@@ -115,3 +119,11 @@ footer {
     margin: 1em 0;
   }
 }
+
+.teams-sports-list, .sports-list {
+  li {
+    font-size: 1.2em;
+    line-height: 1.7em;
+  }
+}
+
